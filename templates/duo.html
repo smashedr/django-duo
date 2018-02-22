@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+{% block login_active %}active{% endblock %}
+{% block title %}Duo{% endblock %}
+
+{% block head %}
+    <link href="{% static 'css/duo.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'duo/Duo-Web-v2.min.js' %}"></script>
+{% endblock %}
+
+{% block main_messages %}{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col text-center">
+
+            <h2>Duo Security Verification</h2>
+
+            <iframe class="embed-responsive-item" id="duo_iframe"
+                    data-host="{{ data.host }}"
+                    data-sig-request="{{ data.sign }}"
+                    data-post-action="{% url 'do_duo' %}"
+                    allowfullscreen>
+            </iframe>
+
+        </div>
+    </div>
+
+
+{% endblock %}

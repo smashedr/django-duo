@@ -1,0 +1,4 @@
+duo_web
+django<3
+gunicorn
+requests
